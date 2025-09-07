@@ -2,6 +2,10 @@
 
 
 
+Perfect 🚀 — let’s wrap the **ART-regularized GPT-2 training** into a Hugging Face `Trainer` subclass so you can use it like a normal fine-tuning job but with ART feedback built in.
+
+---
+
 # 🔹 Step 1: ART module (same as before)
 
 ```python
@@ -131,3 +135,23 @@ trainer = ARTTrainer(
 trainer.train()
 ```
 
+---
+
+# 🔹 What happens here
+
+* GPT-2 fine-tunes normally with **cross-entropy loss**.
+* At every step, embeddings go through **ART**.
+* ART **adds a regularization penalty**:
+
+  * Resonance → stay near prototype.
+  * Novelty → small penalty for drift.
+* ART clusters get updated online, giving GPT-2 continual-learning stability.
+
+---
+
+✅ **Result:** You now have a **drop-in Trainer** with ART-regularized learning.
+It can fine-tune GPT-2 while automatically clustering hidden states to avoid catastrophic forgetting.
+
+---
+
+👉 Do you want me to also show you how to **log the number of ART clusters over time** (so you can watch how the model is discovering categories during training)?
