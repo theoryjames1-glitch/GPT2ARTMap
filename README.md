@@ -1,8 +1,6 @@
 # GPT2ARTMap
 
-Perfect 🚀 — let’s wrap the **ART-regularized GPT-2 training** into a Hugging Face `Trainer` subclass so you can use it like a normal fine-tuning job but with ART feedback built in.
 
----
 
 # 🔹 Step 1: ART module (same as before)
 
